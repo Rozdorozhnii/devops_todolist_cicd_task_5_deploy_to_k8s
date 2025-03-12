@@ -4,13 +4,11 @@ metadata:
   name: todoapp-nodeport
   namespace: {{ .Values.todoapp.namespace }}
 spec:
-  type: {{ .Values.todoapp.service.type }}
+  type: NodePort
   selector:
     app: todoapp
   ports:
   - protocol: TCP
     port: 80
     targetPort: 8080
-    {{- if eq .Values.service.type "NodePort" }}
     nodePort: {{ .Values.todoapp.service.nodePort }}
-    {{- end }}
