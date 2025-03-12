@@ -10,6 +10,10 @@ todoapp:
     repository: ikulyk404/todoapp
     tag: "4.0.1"
 
+  service:
+    type: NodePort
+    nodePort: 30007
+
   resources:
     requests:
       memory: "256Mi"
